@@ -24,7 +24,7 @@ const CartWidget = () => {
                             <p className="text-black"> 3 </p>
                             <Image
                                 className="shop-icon"
-                                src="../assets/carrito.png"
+                                src="./src/assets/carrito.png"
                             />
                         </Button>
                     </PopoverTrigger>
