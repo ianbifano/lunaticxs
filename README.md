@@ -12,4 +12,4 @@ Al tratarse de un proyecto desarrollado con fines educativos se agregaran mas it
 
 ### Visita mi pagina
 
-[www.lunaticxs.com](https://64039e11dccd42774eb1261b--spontaneous-phoenix-9b3686.netlify.app/#)
+[www.lunaticxs.com](https://6403a5a26b6b05000893a09c--lunaticxs.netlify.app/)
