@@ -17,7 +17,7 @@ const NavBar = () => {
                 <Flex justifyContent="center" className="navbar-list" w="100vw">
                     <ul className="none-style-list">
                         <li className="list-item">
-                            <Button className="item-button" variant="link" colorScheme="white">Remerones</Button>
+                            <Button className="item-button" variant="link" colorScheme="white">Remeras</Button>
                         </li>
                         <li className="list-item">
                             <Button className="item-button" variant="link" colorScheme="white">Zapatillas</Button>
