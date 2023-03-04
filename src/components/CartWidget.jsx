@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@chakra-ui/react";
 import { Flex } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
+import logo_carrito from '../assets/carrito.png'; 
 import {
     Popover,
     PopoverTrigger,
@@ -24,7 +25,7 @@ const CartWidget = () => {
                             <p className="text-black"> 3 </p>
                             <Image
                                 className="shop-icon"
-                                src="./src/assets/carrito.png"
+                                src={logo_carrito}
                             />
                         </Button>
                     </PopoverTrigger>

@@ -3,6 +3,7 @@ import CartWidget from "./CartWidget";
 import { Flex } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { Image } from '@chakra-ui/react';
+import logo from '../assets/lunaticxs.png'; 
 
 
 const NavBar = () => {
@@ -11,7 +12,7 @@ const NavBar = () => {
             <Flex className="navbar-container" h="6vh" alignItems="center">
 
                 <Flex w="20vw">
-                    <a href="./#"><Image src="./src/assets/lunaticxs.png" h="25vh" w="30vw" /></a>
+                    <a href="./#"><Image src={logo} h="25vh" w="30vw" /></a>
                 </Flex>
 
                 <Flex justifyContent="center" className="navbar-list" w="100vw">
