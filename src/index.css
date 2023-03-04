@@ -1,0 +1,53 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    color: white;
+}
+
+.navbar-container {
+    margin: 5px 0px;    
+}
+
+.none-style-list{
+    list-style: none;
+}
+
+.list-item {
+    text-align: center;
+    display: inline;
+    margin: 0px 15px;
+}
+
+.item-button {
+    color: white;
+}
+
+.item-button:hover {
+    text-shadow: 5px 5px 10px white ;
+    padding: 10px;
+    background-color: transparent;
+    scale: 1.2;
+}
+
+.shop-icon-button {
+    background-color: white;
+    padding: 5px;
+    border-radius: 500px ;
+    margin-right: 10px;
+}
+
+.shop-icon {
+    background-color: white;
+    width: 40px;
+    margin: 5px;
+}
+
+.text-black {
+    background-color: white;
+    color: black;
+}
+
+.title {
+    font-size: 50px;
+}
