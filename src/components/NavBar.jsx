@@ -1,32 +1,68 @@
+import logo from "../assets/icons/lunaticxs.png";
+
 import React from "react";
+
+import { Flex, Button, Image } from "@chakra-ui/react";
+
+import { Link } from "react-router-dom";
+
 import CartWidget from "./CartWidget";
-import { Flex } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react";
-import { Image } from '@chakra-ui/react';
-import logo from '../assets/lunaticxs.png'; 
 
 const NavBar = () => {
     return (
         <>
-            <Flex className="navbar-container" h="6vh" alignItems="center">
-
+            <Flex className="navbar-container" h="10vh" alignItems="center" >
                 <Flex w="20vw">
-                    <a href="./#"><Image src={logo} h="25vh" w="30vw" /></a>
+                    <Link to="/">
+                        <Image src={logo} h="10vh" w="20vw" />
+                    </Link>
                 </Flex>
 
                 <Flex justifyContent="center" className="navbar-list" w="100vw">
                     <ul className="none-style-list">
                         <li className="list-item">
-                            <Button className="item-button" variant="link" colorScheme="white">Remeras</Button>
+                            <Link to={`${"remeras"}`}>
+                                <Button
+                                    className="item-button"
+                                    variant="link"
+                                    colorScheme="white"
+                                >
+                                    Remeras
+                                </Button>
+                            </Link>
                         </li>
                         <li className="list-item">
-                            <Button className="item-button" variant="link" colorScheme="white">Zapatillas</Button>
+                            <Link to={`${"calzado"}`}>
+                                <Button
+                                    className="item-button"
+                                    variant="link"
+                                    colorScheme="white"
+                                >
+                                    Calzado
+                                </Button>
+                            </Link>
                         </li>
                         <li className="list-item">
-                            <Button className="item-button" variant="link" colorScheme="white">Pantalones</Button>
+                            <Link to={`${"pantalones"}`}>
+                                <Button
+                                    className="item-button"
+                                    variant="link"
+                                    colorScheme="white"
+                                >
+                                    Pantalones
+                                </Button>
+                            </Link>
                         </li>
                         <li className="list-item">
-                            <Button className="item-button" variant="link" colorScheme="white">Accesorios</Button>
+                            <Link to={`${"accesorios"}`}>
+                                <Button
+                                    className="item-button"
+                                    variant="link"
+                                    colorScheme="white"
+                                >
+                                    Accesorios
+                                </Button>
+                            </Link>
                         </li>
                     </ul>
                 </Flex>

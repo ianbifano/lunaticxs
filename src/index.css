@@ -37,20 +37,35 @@
     background-color: white;
     padding: 5px;
     border-radius: 500px ;
-    margin-right: 10px;
+    margin-right: 50px;
 }
 
 .shop-icon {
-    background-color: white;
+    background-color: transparent;
     width: 40px;
     margin: 5px;
 }
 
 .text-black {
-    background-color: white;
+    background-color: transparent;
     color: black;
 }
 
 .title {
     font-size: 50px;
+}
+
+.border {
+    border: 1px solid white;
+    box-shadow: 2px 2px 15px white;
+}
+
+.card {
+    background-color: black;
+    border-radius: 10px;
+    border: none;
+}
+
+.card:hover {
+    border: 1px solid white;
 }

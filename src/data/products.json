@@ -1,0 +1,67 @@
+[
+    {
+        "id": 0,
+        "name": "Tono Magnetico",
+        "description": "Para los amantes de la luna, del universo y su energía. La llave para abrir caminos",
+        "price": 500,
+        "margin": 185,
+        "stock": 5,
+        "category": "remera",
+        "image": "../assets/products/tonoMagnetico.jpeg"
+    },
+    {
+        "id": 1,
+        "name": "Tono lunar",
+        "description": "Llevá un pedacito de la luna en vos",
+        "cost": 3015,
+        "price": 4500,
+        "margin": 1485,
+        "stock": 3,
+        "category": "remera",
+        "image": "../assets/products/tonoLunar.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "Tono Entonado",
+        "description": "",
+        "cost": 7305,
+        "price": 8500,
+        "margin": 1195,
+        "stock": 6,
+        "category": "remera",
+        "image": "../assets/products/tonoEntonado.jpeg"
+    },
+    {
+        "id": 3,
+        "name": "Tono Ritmico",
+        "description": "",
+        "cost": 315,
+        "price": 500,
+        "margin": 185,
+        "stock": 5,
+        "category": "remera",
+        "image": "../assets/products/tonoRitmico.jpeg"
+    },
+    {
+        "id": 4,
+        "name": "Tono Autoexistente",
+        "description": "",
+        "cost": 3015,
+        "price": 4500,
+        "margin": 1485,
+        "stock": 3,
+        "category": "remera",
+        "image": "../assets/products/tonoAutoexistente.jpeg"
+    },
+    {
+        "id": 5,
+        "name": "Tono Electrico",
+        "description": "",
+        "cost": 7305,
+        "price": 8500,
+        "margin": 1195,
+        "stock": 6,
+        "category": "remera",
+        "image": "../assets/products/tonoElectrico.jpeg"
+    }
+]
