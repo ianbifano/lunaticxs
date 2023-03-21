@@ -11,7 +11,7 @@ Al tratarse de un proyecto desarrollado con fines educativos se agregaran mas it
 * Chakra-ui
 
 ### Visita mi pagina
-[www.lunaticxs.com](https://64179f74d86ac30008deb25f--lunaticxs.netlify.app/)
+[www.lunaticxs.com](https://641903765d5b240008cf1235--lunaticxs.netlify.app/)
 
 ### Observaciones
 
