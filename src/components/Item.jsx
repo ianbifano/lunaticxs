@@ -22,7 +22,7 @@ import ItemDetailContainer from "./ItemDetailContainer";
 
 import { Link } from "react-router-dom";
 
-const Item = ({ title, id, quantity }) => {
+const Item = ({ title, id, quantity, userId }) => {
     return (
         <>
             <Link to={`/item/${id}`}>
@@ -34,8 +34,9 @@ const Item = ({ title, id, quantity }) => {
                             borderRadius="lg"
                         />
                         <Stack mt="6" spacing="3">
-                            <Heading size="md"> Title: {title}</Heading>
+                            <Heading size="md"> ID: {id}</Heading>
                             <Text> Title: {title}</Text>
+                            <Text> UserID: {userId}</Text>
                             <Text> { quantity ? `Quantity: ${quantity}` : "" } </Text>
                         </Stack>
                         <CardFooter justifyContent="center"></CardFooter>

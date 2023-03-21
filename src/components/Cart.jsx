@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Wrap } from "@chakra-ui/react";
+import { Flex, Wrap, Button, Text } from "@chakra-ui/react";
 import Item from "./Item";
 
 const Cart = () => {
@@ -17,13 +17,15 @@ const Cart = () => {
 
     return (
         <>
-            <Flex justifyContent="center" alignItems="center">
-                Tu compra
+            <Flex justifyContent="center" alignItems="center" mt={100}>
+                <Text fontSize="30"> Tu Compra </Text>
             </Flex>
             <Wrap justify="center" spacing={10}
                 justifyContent="center" alignItems="center" borderRadius="10px"
-                className="border" m={100}
+                className="border" 
+                m={100} mt={50}
                 p={10} >
+
                 {carrito.map((item) => {
                     return (
                         <Item
@@ -35,6 +37,9 @@ const Cart = () => {
                     );
                 })}
             </Wrap>
+            <Flex flexDirection="row-reverse" mr={100}>
+                <Button textColor="black"> Confirmar Compra </Button>
+            </Flex>
         </>
     );
 };

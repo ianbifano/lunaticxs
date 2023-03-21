@@ -14,6 +14,7 @@ const ItemList = ({products} ) => {
                         return (<Item 
                             key={item.id}
                             title={item.title}
+                            userId={item.userId}
                             id={item.id}
                         />
                     )})

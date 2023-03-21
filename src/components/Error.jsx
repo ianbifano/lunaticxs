@@ -11,7 +11,7 @@ const Error = ({ errormsg }) => {
                 {errormsg ? errormssg : "PAGE NOT FOUND - Error 404 -"}
             </Flex>
             <Flex justifyContent="center">
-                <Link to="/">
+                <Link to="/home">
                     <Button> Volver al inicio </Button>
                 </Link>
             </Flex>

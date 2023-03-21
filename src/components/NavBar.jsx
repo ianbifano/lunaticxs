@@ -14,14 +14,27 @@ const NavBar = () => {
             <Flex className="navbar-container" h="10vh" alignItems="center" >
                 <Flex w="20vw">
                     <Link to="/">
-                        <Image src={logo} h="10vh" w="20vw" />
+                        <Image src={logo} h="20vh" w="25vw" />
                     </Link>
                 </Flex>
 
                 <Flex justifyContent="center" className="navbar-list" w="100vw">
                     <ul className="none-style-list">
+                    <li className="list-item">
+                            <Link to={"/catalogue"}>
+                                <Button
+                                    className="item-button"
+                                    variant="link"
+                                    colorScheme="white"
+                                    fontSize={20}
+                                >
+                                    Catalogo
+                                </Button>
+                            </Link>
+                        </li>
+                        {">>"}
                         <li className="list-item">
-                            <Link to={`${"remeras"}`}>
+                            <Link to={`/catalogue/${"remeras"}`}>
                                 <Button
                                     className="item-button"
                                     variant="link"
@@ -32,7 +45,7 @@ const NavBar = () => {
                             </Link>
                         </li>
                         <li className="list-item">
-                            <Link to={`${"calzado"}`}>
+                            <Link to={`/catalogue/${"calzado"}`}>
                                 <Button
                                     className="item-button"
                                     variant="link"
@@ -43,7 +56,7 @@ const NavBar = () => {
                             </Link>
                         </li>
                         <li className="list-item">
-                            <Link to={`${"pantalones"}`}>
+                            <Link to={`/catalogue/${"pantalones"}`}>
                                 <Button
                                     className="item-button"
                                     variant="link"
@@ -54,7 +67,7 @@ const NavBar = () => {
                             </Link>
                         </li>
                         <li className="list-item">
-                            <Link to={`${"accesorios"}`}>
+                            <Link to={`/catalogue/${"accesorios"}`}>
                                 <Button
                                     className="item-button"
                                     variant="link"

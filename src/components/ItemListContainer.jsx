@@ -34,6 +34,7 @@ const ItemListContainer = () => {
             break;
         case "pantalones":
             categoryId = 3;
+            break;
         case "accesorios":
             categoryId = 4;
             break;
