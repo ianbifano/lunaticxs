@@ -1,26 +1,26 @@
 import { React, useState, useEffect } from "react";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 import ItemDetail from "./ItemDetail";
 import { Flex } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
+
+    const [product, setProduct] = useState([]);
+
     const { id } = useParams();
 
-    const getProducts = async () => {
-        const response = await fetch(
-            "https://jsonplaceholder.typicode.com/albums"
-        );
-        const data = await response.json();
-        return data;
-    };
-
-    const [products, setProducts] = useState([]);
-
     useEffect(() => {
-        getProducts().then((product) => setProducts(product));
-    }, []);
+        const db = getFirestore()
+        const item = doc(db,'products',id) 
 
-    const item = products.filter((product) => product.id == id);
+        getDoc(item).then((snapshot) => {
+            if(snapshot.exists()){
+                const docs = {id: id , ... snapshot.data()}
+                setProduct(docs)
+            }
+        })
+    }, [id]);
 
     return (
         <>
@@ -32,7 +32,7 @@ const ItemDetailContainer = () => {
                 m={100}
                 p={10}
             >
-                <ItemDetail item={item} />
+                <ItemDetail item={product} />
             </Flex>
         </>
     );

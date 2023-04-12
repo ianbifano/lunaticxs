@@ -1,5 +1,4 @@
-import React from "react";
-import { Flex, Button, Image, Divider } from "@chakra-ui/react";
+import { React, useContext } from "react";
 import logo_carrito from "../assets/icons/carrito.png";
 import {
     Popover,
@@ -7,35 +6,24 @@ import {
     PopoverContent,
     PopoverHeader,
     PopoverBody,
-    PopoverFooter,
     PopoverArrow,
     PopoverCloseButton,
-    PopoverAnchor,
+    Flex,
+    Button,
+    Image,
+    Box,
+    Divider
 } from "@chakra-ui/react";
+
+import { CartContext } from "../context/ShoppingCartProvider";
 
 import { Link } from "react-router-dom";
 
 const CartWidget = () => {
-    function getCarrito() {
-        let carrito = [];
-        if (localStorage.getItem("carrito")) {
-            carrito = JSON.parse(localStorage.getItem("carrito"));
-        } else {
-            carrito = [];
-        }
-        return carrito;
-    }
 
-    const carrito = getCarrito();
+    const { cart, cartQuantity } = useContext(CartContext);
 
-    function getTotal(carrito){
-        let total = 0
-        carrito.forEach((item) => {
-            total = total + item[1]
-        })
-
-        return total
-    }
+    console.log("cart::::",cart)
 
     return (
         <>
@@ -43,7 +31,7 @@ const CartWidget = () => {
                 <Popover>
                     <PopoverTrigger>
                         <Button className="shop-icon-button">
-                            <p className="text-black"> {getTotal(carrito)} </p>
+                            <p className="text-black">{cartQuantity() || 0}</p>
                             <Image className="shop-icon" src={logo_carrito} />
                         </Button>
                     </PopoverTrigger>
@@ -55,19 +43,33 @@ const CartWidget = () => {
                         </PopoverHeader>
                         <PopoverBody>
                             <ul className="none-style-list" align="right">
-                                {carrito.map((item) => {
+                                {
+                                (cart.length > 0 ) ? 
+                                cart.map((item) => {
                                     return (
                                         <>
-                                            <li key={item[0].id}>
-                                                {item[0].title} x{item[1]}
-                                            </li>
-                                            <Divider />
+                                            <Box key={item.item.id}>
+                                                <li
+                                                    key={
+                                                        item.id 
+                                                    }
+                                                >
+                                                    {item.item.name} x{item.quantity}
+                                                </li>
+                                                <Divider />
+                                            </Box>
                                         </>
                                     );
-                                })}
-                                <Link to="/cart" >
-                                    <li align="center">
-                                        <Button textColor="black" m={1} size="sm">
+                                })
+                                : ""
+                                }
+                                <Link to="/cart">
+                                    <li key={0} align="center">
+                                        <Button
+                                            textColor="black"
+                                            m={1}
+                                            size="sm"
+                                        >
                                             Ir al carrito
                                         </Button>
                                     </li>

@@ -1,17 +1,13 @@
 import logo from "../assets/icons/lunaticxs.png";
-
-import React from "react";
-
+import { React, useContext } from "react";
 import { Flex, Button, Image } from "@chakra-ui/react";
-
 import { Link } from "react-router-dom";
-
 import CartWidget from "./CartWidget";
 
 const NavBar = () => {
     return (
         <>
-            <Flex className="navbar-container" h="10vh" alignItems="center" >
+            <Flex className="navbar-container" h="10vh" alignItems="center">
                 <Flex w="20vw">
                     <Link to="/">
                         <Image src={logo} h="20vh" w="25vw" />
@@ -20,7 +16,7 @@ const NavBar = () => {
 
                 <Flex justifyContent="center" className="navbar-list" w="100vw">
                     <ul className="none-style-list">
-                    <li className="list-item">
+                        <li className="list-item">
                             <Link to={"/catalogue"}>
                                 <Button
                                     className="item-button"
