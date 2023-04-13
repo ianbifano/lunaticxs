@@ -49,6 +49,7 @@ const ShoppingCartProvider = ({ children }) => {
     //Vacia el carrito
     const resetCart = () => {
         setCart([]);
+        localStorage.setItem("cart", JSON.stringify([]));
     };
 
     const getTotal = () => {
@@ -65,6 +66,7 @@ const ShoppingCartProvider = ({ children }) => {
 
     const confirmSale = () => {
         setCart([])
+        localStorage.setItem("cart", JSON.stringify([]));
     }
 
     return (
