@@ -1,7 +1,6 @@
-import { React, useContext, useState } from "react";
+import { React, useContext } from "react";
 
 import {
-    Flex,
     Card,
     CardBody,
     Image,
@@ -15,13 +14,11 @@ import ItemCount from "./ItemCount";
 import { CartContext } from "../context/ShoppingCartProvider";
 
 const ItemDetail = ({ item }) => {
-    const [sale, setSale] = useState(false);
 
     const { cart, addToCart, isInCart } = useContext(CartContext);
 
     const addProduct = (quantity) => {
         addToCart(item, quantity);
-        setSale(true);
     };
 
     let quantity = 1

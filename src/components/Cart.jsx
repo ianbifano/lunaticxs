@@ -13,11 +13,13 @@ import {
     Button,
     Th,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import Item from "./Item";
 import { CartContext } from "../context/ShoppingCartProvider";
 
 const Cart = () => {
-    const { cart, getTotal, removeFromCart, resetCart } = useContext(CartContext);
+    const { cart, getTotal, removeFromCart, resetCart } =
+        useContext(CartContext);
 
     return (
         <>
@@ -105,10 +107,16 @@ const Cart = () => {
                             </Tfoot>
                         </Table>
                         <Flex direction="row-reverse" mt={10}>
-                            <Button textColor="black" m={2}>
-                                Confirmar Compra
-                            </Button>
-                            <Button textColor="black" m={2} onClick={ () => resetCart()}>
+                            <Link to="/form">
+                                <Button textColor="black" m={2}>
+                                    Confirmar Compra
+                                </Button>
+                            </Link>
+                            <Button
+                                textColor="black"
+                                m={2}
+                                onClick={() => resetCart()}
+                            >
                                 Vaciar Carrito
                             </Button>
                         </Flex>

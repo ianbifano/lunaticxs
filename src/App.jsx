@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import ShoppingCartProvider from "./context/ShoppingCartProvider";
 import CartContainer from "./components/CartContainer";
+import Form from "./components/Form"
 
 const App = () => {
     return (
@@ -23,8 +24,7 @@ const App = () => {
                         <NavBar />
 
                         <Routes>
-                            <Route exact path="/" element={<Home />} 
-                            />
+                            <Route exact path="/" element={<Home />} />
 
                             <Route
                                 exact
@@ -49,9 +49,13 @@ const App = () => {
                                 element={<CartContainer />}
                             />
 
-                            <Route exact path="*" element={<Error />} 
+                            <Route
+                                exact
+                                path="/form"
+                                element={<Form />}
                             />
 
+                            <Route exact path="*" element={<Error />} />
                         </Routes>
                     </ShoppingCartProvider>
 

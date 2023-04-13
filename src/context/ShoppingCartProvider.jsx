@@ -22,9 +22,9 @@ const ShoppingCartProvider = ({ children }) => {
             let record = {"item": item, "quantity": quantity};
 
             if (isInCart(item.id)) {
-                let new_Cart = cart.filter((obj) => obj.item.id != item.id);
-                localStorage.setItem("cart", JSON.stringify([...new_Cart, record]));
-                setCart([...new_Cart, record])
+                let newCart = cart.filter((obj) => obj.item.id != item.id);
+                localStorage.setItem("cart", JSON.stringify([...newCart, record]));
+                setCart([...newCart, record])
                 return false;
             } else {
                 localStorage.setItem("cart", JSON.stringify([...cart , record ]));
@@ -62,6 +62,10 @@ const ShoppingCartProvider = ({ children }) => {
         cart.forEach((item) => aux = aux + item.quantity )
         return aux;
     };
+
+    const confirmSale = () => {
+
+    }
 
     return (
         <>

@@ -26,8 +26,7 @@ const Item = ({ description, price, stock, name, img, id, alt }) => {
                             borderRadius="lg"
                         />
                         <Stack mt="6" spacing="3">
-                            <Heading size="md"> ID: {id}</Heading>
-                            <Text> Title: {name}</Text>
+                            <Heading size="md">{name}</Heading>
                             <Text> Descripcion: {description}</Text>
                             <Text> Precio: $ {price}</Text>
                             <Text> Stock: {stock}</Text>
