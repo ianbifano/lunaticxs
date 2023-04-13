@@ -13,11 +13,8 @@ Al tratarse de un proyecto desarrollado con fines educativos se agregaran mas it
 ### Visita mi pagina
 [www.lunaticxs.com](https://lunaticxs.netlify.app/)
 
-### Observaciones
-
-La pagina aun se encuentra en desarrollo, y se esta utilizando con fines educativos, con lo cual en el momento se encuentra consumiento la api de [jsonplaceholder](https://jsonplaceholder.typicode.com/) donde en realidad, estaria simulando la consulta a la base de datos con los productos.
-Otro detalle no menor, es que por el momento se utiliza como filtro por categorias, el atributo userId que me devuelven los objetos de la consulta a la api.
-
+## Observaciones
+La pagina se encuentra integrada con una base de datos generada en firebase, las imagenes las traemos de firestore, donde fueron alojadas para acceder desde la url.
 ### Muestra
 
 ![Gif](./src/assets/gif/screen-capture.gif)
