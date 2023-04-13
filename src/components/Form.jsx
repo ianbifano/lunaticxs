@@ -19,7 +19,7 @@ const Form = () => {
     const [mail, setMail] = useState("");
     const [phone, setPhone] = useState(0);
 
-    const { cart, getTotal } = useContext(CartContext);
+    const { cart, getTotal, confirmSale } = useContext(CartContext);
 
     const db = getFirestore();
 
@@ -53,11 +53,20 @@ const Form = () => {
 
     const ordersCollection = collection(db, "orders");
 
+    if (orderId) {
+        return (
+            <Flex justify="center">
+                <Text fontSize={20}>Gracias por tu compra.
+                <br></br> Orden: <u> {orderId} </u> </Text>
+            </Flex>
+        );
+    }
+
     return (
         <>
-        <Flex justifyContent="center" mb={30}>
-            <Text fontSize={20}>Finaliza Tu Compra</Text>
-        </Flex>
+            <Flex justifyContent="center" mb={30}>
+                <Text fontSize={20}>Envia Tu Orden de Compra</Text>
+            </Flex>
             <Flex justifyContent="center">
                 <Box className="border" p={20} pt={5} borderRadius={10}>
                     <form onSubmit={handleSubmit}>
@@ -66,6 +75,7 @@ const Form = () => {
                             <Input
                                 type="text"
                                 onChange={(e) => setName(e.target.value)}
+                                isRequired
                             />
                         </FormControl>
                         <FormControl m={2}>
@@ -73,17 +83,25 @@ const Form = () => {
                             <Input
                                 type="email"
                                 onChange={(e) => setMail(e.target.value)}
+                                isRequired
                             />
                         </FormControl>
-                        <FormControl m={2} >
+                        <FormControl m={2}>
                             <FormLabel>Telefono</FormLabel>
                             <Input
                                 type="number"
                                 onChange={(e) => setPhone(e.target.value)}
+                                isRequired
                             />
                         </FormControl>
                         <Flex direction="row-reverse">
-                            <Button type="submit" textColor="black">
+                            <Button
+                                type="submit"
+                                textColor="black"
+                                onClick={() => {
+                                    confirmSale();
+                                }}
+                            >
                                 Enviar
                             </Button>
                         </Flex>

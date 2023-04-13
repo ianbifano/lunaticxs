@@ -64,7 +64,7 @@ const ShoppingCartProvider = ({ children }) => {
     };
 
     const confirmSale = () => {
-
+        setCart([])
     }
 
     return (
@@ -77,7 +77,8 @@ const ShoppingCartProvider = ({ children }) => {
                     isInCart,
                     cartQuantity,
                     resetCart,
-                    getTotal
+                    getTotal,
+                    confirmSale
                 }}
             >
                 {children}
