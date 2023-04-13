@@ -6,10 +6,7 @@ const Footer = () => {
         <>
             <Flex justifyContent="center" mt={100}>
                 <Box ml={10} mr={10} >
-                    Instagram
-                </Box>
-                <Box ml={10} mr={10} >
-                    Facebook
+                    <a href="https://www.instagram.com/lunaticxs.__/">Instagram</a>
                 </Box>
             </Flex>
         </>
