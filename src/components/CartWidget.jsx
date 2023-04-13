@@ -12,7 +12,7 @@ import {
     Button,
     Image,
     Box,
-    Divider
+    Divider,
 } from "@chakra-ui/react";
 
 import { CartContext } from "../context/ShoppingCartProvider";
@@ -20,10 +20,7 @@ import { CartContext } from "../context/ShoppingCartProvider";
 import { Link } from "react-router-dom";
 
 const CartWidget = () => {
-
     const { cart, cartQuantity } = useContext(CartContext);
-
-    console.log("cart::::",cart)
 
     return (
         <>
@@ -43,37 +40,41 @@ const CartWidget = () => {
                         </PopoverHeader>
                         <PopoverBody>
                             <ul className="none-style-list" align="right">
-                                {
-                                (cart.length > 0 ) ? 
-                                cart.map((item) => {
-                                    return (
-                                        <>
-                                            <Box key={item.item.id}>
-                                                <li
-                                                    key={
-                                                        item.id 
-                                                    }
-                                                >
-                                                    {item.item.name} x{item.quantity}
-                                                </li>
-                                                <Divider />
-                                            </Box>
-                                        </>
-                                    );
-                                })
-                                : ""
+                                {cart.length > 0 ? (
+                                    cart.map((item) => {
+                                        return (
+                                            <>
+                                                <Box key={item.item.id}>
+                                                    <li key={item.id}>
+                                                        {item.item.name} x
+                                                        {item.quantity}
+                                                    </li>
+                                                    <Divider />
+                                                </Box>
+                                            </>
+                                        );
+                                    })
+                                ) : (
+                                    <Box>
+                                        <li>Sin productos en el carrito</li>
+                                        <Divider />
+                                    </Box>
+                                )}
+
+                                {cart.length > 0 ? (
+                                    <Link to="/cart">
+                                        <li key={0} align="center">
+                                            <Button
+                                                textColor="black"
+                                                m={1}
+                                                size="sm"
+                                            >
+                                                Ir al carrito
+                                            </Button>
+                                        </li>
+                                    </Link>
+                                ) : ""
                                 }
-                                <Link to="/cart">
-                                    <li key={0} align="center">
-                                        <Button
-                                            textColor="black"
-                                            m={1}
-                                            size="sm"
-                                        >
-                                            Ir al carrito
-                                        </Button>
-                                    </li>
-                                </Link>
                             </ul>
                         </PopoverBody>
                     </PopoverContent>

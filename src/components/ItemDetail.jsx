@@ -17,12 +17,18 @@ import { CartContext } from "../context/ShoppingCartProvider";
 const ItemDetail = ({ item }) => {
     const [sale, setSale] = useState(false);
 
-    const { addToCart } = useContext(CartContext);
+    const { cart, addToCart, isInCart } = useContext(CartContext);
 
     const addProduct = (quantity) => {
         addToCart(item, quantity);
         setSale(true);
     };
+
+    let quantity = 1
+    if(isInCart(item.id)){
+        const prod = cart.find((obj) => obj.item.id == item.id)
+        quantity = prod.quantity
+    } 
 
     return (
         <>
@@ -37,7 +43,7 @@ const ItemDetail = ({ item }) => {
                     </Stack>
 
                     <CardFooter justifyContent="center">
-                        <ItemCount product={item} addProduct={addProduct} />
+                        <ItemCount incart={quantity} product={item} addProduct={addProduct} />
                     </CardFooter>
                 </CardBody>
             </Card>

@@ -18,6 +18,7 @@ const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
+        setLoading(true)
         const db = getFirestore();
         const prods_collection = collection(db, "products");
         getDocs(prods_collection).then((snapshot) => {
@@ -30,14 +31,15 @@ const ItemListContainer = () => {
 
             if (category) {
                 cat = category;
+
+                setProducts(docs.filter((item) => item.category == cat));
+            } else {
+                setProducts(docs.sort((x,y) => x.category.localeCompare(y.category) ))
             }
-            setProducts(docs);
         });
 
         setLoading(false);
     }, [category]);
-
-    console.log(products);
 
     if (loading) {
         return (

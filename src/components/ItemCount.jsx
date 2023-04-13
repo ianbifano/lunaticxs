@@ -1,8 +1,8 @@
 import { React, useState } from "react";
 import { Flex, Button, useToast, Box } from "@chakra-ui/react";
 
-const ItemCount = ({ product, addProduct }) => {
-    const [quantity, setQuantity] = useState(0);
+const ItemCount = ({ incart, product, addProduct }) => {
+    const [quantity, setQuantity] = useState(incart);
 
     const toast = useToast();
     return (
@@ -11,7 +11,7 @@ const ItemCount = ({ product, addProduct }) => {
                 <Button
                     textColor="black"
                     onClick={() => {
-                        quantity > 0 ? setQuantity(quantity - 1) : "";
+                        quantity > 1 ? setQuantity(quantity - 1) : "";
                     }}
                 >
                     -
@@ -22,24 +22,26 @@ const ItemCount = ({ product, addProduct }) => {
                     ml={4}
                     mr={4}
                     onClick={() => {
-                        if (addProduct(quantity)) {
-                            toast({
-                                position: "bottom-right",
-                                render: () => (
-                                    <Box color="black" p={3} bg="white">
-                                        Se agrego el producto al carrito
-                                    </Box>
-                                ),
-                            });
-                        } else {
-                            toast({
-                                position: "bottom-right",
-                                render: () => (
-                                    <Box color="black" p={3} bg="white">
-                                        Se modifico la cantidad seleccionada
-                                    </Box>
-                                ),
-                            });
+                        if (quantity > 0) {
+                            if (addProduct(quantity)) {
+                                toast({
+                                    position: "bottom-right",
+                                    render: () => (
+                                        <Box color="black" p={3} bg="white">
+                                            Se agrego el producto al carrito
+                                        </Box>
+                                    ),
+                                });
+                            } else {
+                                toast({
+                                    position: "bottom-right",
+                                    render: () => (
+                                        <Box color="black" p={3} bg="white">
+                                            Se modifico la cantidad seleccionada
+                                        </Box>
+                                    ),
+                                });
+                            }
                         }
                     }}
                 >
@@ -49,7 +51,9 @@ const ItemCount = ({ product, addProduct }) => {
                 <Button
                     textColor="black"
                     onClick={() => {
-                        (quantity < product.stock) ? setQuantity(quantity + 1) : "" ;
+                        quantity < product.stock
+                            ? setQuantity(quantity + 1)
+                            : "";
                     }}
                 >
                     +

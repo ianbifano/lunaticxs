@@ -22,12 +22,9 @@ const ShoppingCartProvider = ({ children }) => {
             let record = {"item": item, "quantity": quantity};
 
             if (isInCart(item.id)) {
-                let prod = cart.find((obj) => obj.item.id == item.id);
-                prod.quantity = quantity;
-
-                localStorage.setItem("cart", JSON.stringify(cart));
-                let aux = cart
-                setCart(cart)
+                let new_Cart = cart.filter((obj) => obj.item.id != item.id);
+                localStorage.setItem("cart", JSON.stringify([...new_Cart, record]));
+                setCart([...new_Cart, record])
                 return false;
             } else {
                 localStorage.setItem("cart", JSON.stringify([...cart , record ]));
@@ -36,12 +33,12 @@ const ShoppingCartProvider = ({ children }) => {
             }
         }
     };
-    console.log(cart);
 
 
     //Recibe un id de un item por parametro, y lo elimina del carrito
     const removeFromCart = (id) => {
-        /* setCart(cart.filter((item) => item.id !== id)); */
+        const aux = cart.filter((item) => item.item.id !== id)
+        setCart(aux);
     };
 
     //recibe un id de un item, sis e encuentra en el carrito retorna true en caso contrario, false
@@ -56,14 +53,12 @@ const ShoppingCartProvider = ({ children }) => {
 
     const getTotal = () => {
         let aux = 0;
-        console.log(cart)
         cart.forEach((item) => aux = aux + (item.quantity * item.item.price) )
         return aux;
     }
 
     const cartQuantity = () => {
         let aux = 0;
-        console.log(cart)
         cart.forEach((item) => aux = aux + item.quantity )
         return aux;
     };

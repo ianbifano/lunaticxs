@@ -17,7 +17,7 @@ import Item from "./Item";
 import { CartContext } from "../context/ShoppingCartProvider";
 
 const Cart = () => {
-    const { cart, getTotal } = useContext(CartContext);
+    const { cart, getTotal, removeFromCart, resetCart } = useContext(CartContext);
 
     return (
         <>
@@ -34,7 +34,7 @@ const Cart = () => {
                     p={10}
                     mb={50}
                 >
-                    Empty
+                    Sin productos en el carrito
                 </Flex>
             ) : (
                 <Wrap
@@ -65,7 +65,7 @@ const Cart = () => {
                                             <Image
                                                 src={item.item.img}
                                                 h={20}
-                                                w={35}
+                                                w={50}
                                             />
                                         </Td>
                                         <Td align="center">{item.item.name}</Td>
@@ -79,7 +79,14 @@ const Cart = () => {
                                             $ {item.quantity * item.item.price}
                                         </Td>
                                         <Td>
-                                            <Button textColor="black">
+                                            <Button
+                                                textColor="black"
+                                                onClick={() => {
+                                                    removeFromCart(
+                                                        item.item.id
+                                                    );
+                                                }}
+                                            >
                                                 Quitar
                                             </Button>
                                         </Td>
@@ -87,16 +94,23 @@ const Cart = () => {
                                 );
                             })}
                             <Tfoot>
-                                <Td></Td>
-                                <Td></Td>
-                                <Td></Td>
-                                <Td></Td>
-                                <Td> TOTAL: </Td>
-                                <Td> $ {getTotal()} </Td>
+                                <Tr>
+                                    <Td></Td>
+                                    <Td></Td>
+                                    <Td></Td>
+                                    <Td></Td>
+                                    <Td> TOTAL: </Td>
+                                    <Td> $ {getTotal()} </Td>
+                                </Tr>
                             </Tfoot>
                         </Table>
-                        <Flex justify="row-reverse" mt={10}>
-                            <Button textColor="black"> Confirmar Compra </Button>
+                        <Flex direction="row-reverse" mt={10}>
+                            <Button textColor="black" m={2}>
+                                Confirmar Compra
+                            </Button>
+                            <Button textColor="black" m={2} onClick={ () => resetCart()}>
+                                Vaciar Carrito
+                            </Button>
                         </Flex>
                     </Box>
                 </Wrap>
