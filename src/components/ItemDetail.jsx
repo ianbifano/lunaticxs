@@ -34,7 +34,7 @@ const ItemDetail = ({ item }) => {
                     <Image src={item.img} alt={item.alt} borderRadius="lg" h={300} w="100%" />
                     <Stack mt="6" spacing="3">
                         <Heading size="md">{item.name}</Heading>
-                        <Text>{item.price}</Text>
+                        <Text>Precio: $ {item.price}</Text>
                         <Text>Descripcion: {item.description}</Text>
                         <Text>stock: {item.stock}</Text>
                     </Stack>

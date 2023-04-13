@@ -12,6 +12,7 @@ import {
     Box,
 } from "@chakra-ui/react";
 import { CartContext } from "../context/ShoppingCartProvider";
+import { Link } from "react-router-dom";
 
 const Form = () => {
     const [orderId, setOrderId] = useState(null);
@@ -56,8 +57,10 @@ const Form = () => {
     if (orderId) {
         return (
             <Flex justify="center">
-                <Text fontSize={20}>Gracias por tu compra.
-                <br></br> Orden: <u> {orderId} </u> </Text>
+                <Text fontSize={20}>
+                    Gracias por tu compra.
+                    <br></br> Orden: <u> {orderId} </u>{" "}
+                </Text>
             </Flex>
         );
     }
@@ -96,6 +99,8 @@ const Form = () => {
                         </FormControl>
                         <Flex direction="row-reverse">
                             <Button
+                                mb={1}
+                                ml={1}
                                 type="submit"
                                 textColor="black"
                                 onClick={() => {
@@ -104,6 +109,9 @@ const Form = () => {
                             >
                                 Enviar
                             </Button>
+                            <Link to="/cart">
+                                <Button mb={1} ml={1} textColor="Black" >Cancelar</Button>
+                            </Link>
                         </Flex>
                     </form>
                 </Box>
